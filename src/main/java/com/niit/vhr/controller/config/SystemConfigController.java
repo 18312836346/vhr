@@ -1,4 +1,4 @@
-package com.niit.vhr.controller;
+package com.niit.vhr.controller.config;
 
 import com.niit.vhr.model.Menu;
 import com.niit.vhr.service.MenuService;
