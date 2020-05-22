@@ -204,7 +204,7 @@
       #{emp.beginContract,jdbcType=DATE}, #{emp.endContract,jdbcType=DATE}, #{emp.workAge,jdbcType=INTEGER}
       )
     </foreach>
-  </insert>
+     </insert>
   <insert id="insert" parameterType="com.niit.vhr.model.Employee">
     insert into employee (id, name, gender,
       birthday, idCard, wedlock, nationId,

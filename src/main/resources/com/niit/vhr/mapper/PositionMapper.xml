@@ -10,7 +10,7 @@
   <sql id="Base_Column_List" >
     id, name, createDate, enabled
   </sql>
-  <insert id="batchInsert" parameterType="com.niit.vhr.model.Position">
+    <insert id="batchInsert" parameterType="com.niit.vhr.model.Position">
     insert into position (name, createDate, enabled) values
     <foreach collection="list" item="position" separator=",">
       (#{position.name,jdbcType=VARCHAR}, #{position.createDate, jdbcType=TIMESTAMP},

@@ -10,8 +10,8 @@ import java.util.List;
 @Service
 public class PoliticsstatusService {
 
-    @Autowired
-    PoliticsstatusMapper politicsstatusMapper;
+      @Autowired
+      PoliticsstatusMapper politicsstatusMapper;
     public List<Politicsstatus> getAllPoliticsstatus() {
         return politicsstatusMapper.getAllPoliticsstatus();
     }

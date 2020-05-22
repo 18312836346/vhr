@@ -19,7 +19,7 @@ public class VerifyCodeController {
     @Resource
     Producer defaultKaptcha;
     @GetMapping("/verifyCode")
-    @ApiOperation(value = "生成验证码")
+     @ApiOperation(value = "--生成验证码--")
     public  void verify(HttpServletRequest request, HttpServletResponse response)
     throws Exception{
         response.setDateHeader("Expires",0);

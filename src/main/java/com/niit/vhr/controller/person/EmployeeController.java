@@ -33,7 +33,7 @@ public class EmployeeController {
     @Autowired
     DepartmentService departmentService;
 
-    @GetMapping("/")
+      @GetMapping("/")
     public RespPageBean getEmployeeByPage(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer size, Employee employee, Date[] beginDateScope) {
         return employeeService.getEmployeeByPage(page, size, employee,beginDateScope);
     }
@@ -41,9 +41,9 @@ public class EmployeeController {
     @PostMapping("/")
     public RespBean addEmp(@RequestBody Employee employee) {
         if (employeeService.addEmp(employee) == 1) {
-            return RespBean.ok("添加成功!");
+            return RespBean.ok("添加成功!!");
         }
-        return RespBean.error("添加失败!");
+        return RespBean.error("添加失败!!");
     }
 
     @DeleteMapping("/{id}")

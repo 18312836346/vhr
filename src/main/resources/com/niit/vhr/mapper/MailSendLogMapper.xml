@@ -6,9 +6,9 @@
     <update id="updateMailSendLogStatus">
         update mail_send_log set status = #{status} where msgId=#{msgId};
     </update>
-    <insert id="insert" parameterType="com.niit.vhr.mapper.MailSendLogMapper">
+     <insert id="insert" parameterType="com.niit.vhr.mapper.MailSendLogMapper">
         insert into mail_send_log (msgId,empId,routeKey,exchange,tryTime,createTime) values (#{msgId},#{empId},#{routeKey},#{exchange},#{tryTime},#{createTime});
-    </insert>
+     </insert>
 
     <select id="getMailSendLogsByStatus" resultType="com.niit.vhr.model.MailSendLog">
         select * from mail_send_log where status=0 and tryTime &lt; sysdate()

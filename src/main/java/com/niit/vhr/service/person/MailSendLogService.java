@@ -16,15 +16,15 @@ public class MailSendLogService {
         return mailSendLogMapper.updateMailSendLogStatus(msgId, status);
     }
 
-    public Integer insert(MailSendLog mailSendLog) {
+      public Integer insert(MailSendLog mailSendLog) {
         return mailSendLogMapper.insert(mailSendLog);
     }
 
-    public List<MailSendLog> getMailSendLogsByStatus() {
+      public List<MailSendLog> getMailSendLogsByStatus() {
         return mailSendLogMapper.getMailSendLogsByStatus();
     }
 
-    public Integer updateCount(String msgId, Date date) {
+     public Integer updateCount(String msgId, Date date) {
         return mailSendLogMapper.updateCount(msgId,date);
     }
 }

@@ -8,9 +8,9 @@
     <result column="createDate" property="createDate" jdbcType="TIMESTAMP" />
     <result column="enabled" property="enabled" jdbcType="BIT" />
   </resultMap>
-  <sql id="Base_Column_List" >
+    <sql id="Base_Column_List" >
     id, name, titleLevel, createDate, enabled
-  </sql>
+    </sql>
   <delete id="deleteByIds" parameterType="java.lang.Integer">
     delete from joblevel where id in
     <foreach collection="array" item="id" open="(" separator="," close=")" >

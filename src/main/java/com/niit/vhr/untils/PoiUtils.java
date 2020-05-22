@@ -229,11 +229,11 @@ public class PoiUtils {
                 //4. 获取表单中的行数
                 int physicalNumberOfRows = sheet.getPhysicalNumberOfRows();
                 for (int j = 0; j < physicalNumberOfRows; j++) {
-                    //5. 跳过标题行
+
                     if (j == 0) {
                         continue;//跳过标题行
                     }
-                    //6. 获取行
+
                     HSSFRow row = sheet.getRow(j);
                     if (row == null) {
                         continue;//防止数据中间有空行

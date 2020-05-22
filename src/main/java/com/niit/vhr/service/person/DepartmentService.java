@@ -15,7 +15,7 @@ public class DepartmentService {
         return departmentMapper.getAllDepartmentsByParentId(-1);
     }
 
-    public void addDep(Department dep) {
+      public void addDep(Department dep) {
         dep.setEnabled(true);
         departmentMapper.addDep(dep);
     }
