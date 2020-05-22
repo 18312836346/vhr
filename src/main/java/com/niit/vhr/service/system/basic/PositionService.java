@@ -1,5 +1,7 @@
 package com.niit.vhr.service.system.basic;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.niit.vhr.mapper.PositionMapper;
 import com.niit.vhr.model.Position;
 import org.springframework.stereotype.Service;
@@ -33,5 +35,14 @@ public class PositionService {
     }
     public Integer deletePosition(Integer[] ids) {
         return positionMapper.deleteByIds(ids);
+    }
+
+    public PageInfo<Position> getPositionByPage(Integer page, Integer size){
+        PageHelper.startPage(page,size);
+        List<Position> positions = positionMapper.selectAllPosition();
+        return new PageInfo<>(positions,size);
+    }
+    public int addPositions(List<Position> positions) {
+        return positionMapper.batchInsert(positions);
     }
 }

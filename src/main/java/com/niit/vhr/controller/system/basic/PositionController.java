@@ -1,5 +1,6 @@
 package com.niit.vhr.controller.system.basic;
 
+import com.github.pagehelper.PageInfo;
 import com.niit.vhr.model.Position;
 import com.niit.vhr.model.RespBean;
 import com.niit.vhr.service.system.basic.PositionService;
@@ -8,8 +9,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/system/basic/pos")
 @Api(value = "PositionController", tags = {"职位管理"})
@@ -17,12 +16,21 @@ import java.util.List;
     @Autowired
     PositionService positionService;
 
-    @GetMapping("/")
-    @ApiOperation(value = "获取职位",notes = "获取数据库里的所有职位")
-    public RespBean getAllPosition() {
-        List<Position> positions = positionService.getAllPosition();
-        return RespBean.ok("获取成功", positions);
-    }
+//    @GetMapping("/")
+//    @ApiOperation(value = "获取职位",notes = "获取数据库里的所有职位")
+//    public RespBean getAllPosition() {
+//        List<Position> positions = positionService.getAllPosition();
+//        return RespBean.ok("获取成功", positions);
+//    }
+
+   @GetMapping("/")
+   @ApiOperation(value = "分页获取职位",notes = "职位信息列表")
+   public RespBean getPositionByPage(@RequestParam(defaultValue = "1")Integer page,
+                                  @RequestParam(defaultValue = "5")Integer size){
+    PageInfo<Position> positions = positionService.getPositionByPage(page,size);
+    return RespBean.ok("",positions);
+
+}
 
     @PostMapping("/")
     @ApiOperation(value = "添加职位",notes = "添加用户输入的新的职位")
@@ -59,4 +67,20 @@ import java.util.List;
         }
         return RespBean.error("批量删除失败");
     }
+//    @GetMapping("/export")
+//    @ApiOperation(value = "导出数据", notes = "将所有职位导出到excel")
+//    public ResponseEntity<byte[]> exportData() {
+//        List<Position> positions = positionService.getAllPosition();
+//        return PoiUtils.exportData(positions);
+//    }
+//
+//    @PostMapping("/import")
+//    @ApiOperation(value = "导入数据", notes = "导入excel数据")
+//    public RespBean importData(MultipartFile file) throws IOException {
+//        List<Position> positions = PoiUtils.importData(file);
+//        if(positionService.addPositions(positions) == positions.size()) {
+//            return RespBean.ok("导入成功");
+//        }
+//        return RespBean.ok("导入失败");
+//    }
 }
